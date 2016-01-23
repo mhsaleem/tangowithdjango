@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'tango_with_django_project/templates')
+STATIC_PATH = os.path.join(BASE_DIR,'tango_with_django_project/static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'tango_with_django_project/media') # Absolute path to the media directory
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +31,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+TEMPLATE_DIRS = (TEMPLATE_PATH,)
 # Application definition
 
 INSTALLED_APPS = (
@@ -81,4 +86,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
